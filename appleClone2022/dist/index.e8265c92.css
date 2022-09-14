@@ -1,3 +1,24 @@
+@font-face {
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 100;
+  src: local(SF-Pro-Display-Light), url("SF-Pro-Display-Light.a35c3703.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 400;
+  src: local(SF-Pro-Display-Regular), url("SF-Pro-Display-Regular.ecb6a8ad.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 700;
+  src: local(SF-Pro-Display-Semibold), url("SF-Pro-Display-Semibold.c38bee3c.woff2") format("woff2");
+}
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   vertical-align: baseline;
   border: 0;
@@ -38,27 +59,6 @@ a {
   text-decoration: none;
 }
 
-@font-face {
-  font-family: SF Pro Display;
-  font-style: normal;
-  font-weight: 100;
-  src: local(SF-Pro-Display-Light), url("SF-Pro-Display-Light.a35c3703.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: SF Pro Display;
-  font-style: normal;
-  font-weight: 400;
-  src: local(SF-Pro-Display-Regular), url("SF-Pro-Display-Regular.ecb6a8ad.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: SF Pro Display;
-  font-style: normal;
-  font-weight: 700;
-  src: local(SF-Pro-Display-Semibold), url("SF-Pro-Display-Semibold.c38bee3c.woff2") format("woff2");
-}
-
 body {
   background-color: #000;
 }
@@ -72,7 +72,11 @@ body {
 #product-nav {
   width: 100%;
   height: 52px;
+  min-width: 1024px;
+  z-index: 9997;
   position: sticky;
+  top: 0;
+  left: 0;
 }
 
 #product-nav .wrap {
@@ -123,6 +127,20 @@ body {
   align-items: center;
   font-size: 21px;
   display: inline-flex;
+}
+
+#product-nav.sticky-now .wrap .bg {
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: #1d1d1fb8;
+  transition: background-color .5s cubic-bezier(.28, .11, .32, 1), -webkit-backdrop-filter .5s cubic-bezier(.28, .11, .32, 1), backdrop-filter .5s cubic-bezier(.28, .11, .32, 1), -webkit-backdrop-filter .5s cubic-bezier(.28, .11, .32, 1);
+}
+
+#product-nav.sticky-now .wrap .bg:after {
+  width: 100%;
+  margin-left: 0;
+  left: 0;
 }
 
 .main {
@@ -202,6 +220,72 @@ body {
   color: #cecece;
   pointer-events: none;
   cursor: default;
+}
+
+.section-dynamic-island {
+  margin-top: 180px;
+}
+
+.section-dynamic-island .dynamic-island-container .device-container {
+  justify-content: center;
+  display: flex;
+}
+
+.section-dynamic-island .dynamic-island-container .device-container .device-group {
+  width: 974px;
+  height: 876px;
+  align-self: end;
+  place-items: end center;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  transform: none;
+}
+
+.section-dynamic-island .dynamic-island-container .device-container .device-group .device-chrome-container {
+  z-index: 3;
+  grid-area: 1 / 1;
+  display: block;
+}
+
+.section-dynamic-island .dynamic-island-container .device-container .device-group .device-chrome-container .dynamic-device {
+  width: 974px;
+  height: 876px;
+  display: block;
+}
+
+.section-dynamic-island .dynamic-island-container .device-container .device-group .device-video {
+  z-index: 2;
+  grid-area: 1 / 1;
+  display: block;
+}
+
+.section-dynamic-island .dynamic-island-container .device-container .device-group .device-video .video-container {
+  width: 864px;
+  height: 832px;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  position: relative;
+}
+
+.section-dynamic-island .dynamic-island-container .device-container .device-group .device-video .video-container .device-start-frame {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.section-dynamic-island .dynamic-island-container .device-container .device-group .device-video .video-container video {
+  width: 864px;
+  height: 832px;
+  border-radius: 78px 78px 0 0;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=index.e8265c92.css.map */
