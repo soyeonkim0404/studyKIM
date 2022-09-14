@@ -1,0 +1,207 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  vertical-align: baseline;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: SF Pro Display, sans-serif;
+  font-size: 100%;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 100;
+  src: local(SF-Pro-Display-Light), url("SF-Pro-Display-Light.a35c3703.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 400;
+  src: local(SF-Pro-Display-Regular), url("SF-Pro-Display-Regular.ecb6a8ad.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 700;
+  src: local(SF-Pro-Display-Semibold), url("SF-Pro-Display-Semibold.c38bee3c.woff2") format("woff2");
+}
+
+body {
+  background-color: #000;
+}
+
+#header {
+  width: 100%;
+  height: 44px;
+  background: #161617cc;
+}
+
+#product-nav {
+  width: 100%;
+  height: 52px;
+  position: sticky;
+}
+
+#product-nav .wrap {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#product-nav .wrap .bg {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: background-color .5s cubic-bezier(.28, .11, .32, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#product-nav .wrap .bg:after {
+  content: "";
+  width: 980px;
+  height: 1px;
+  z-index: 1;
+  background-color: #ffffff3d;
+  margin-left: -490px;
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+}
+
+#product-nav .wrap .inner {
+  height: 52px;
+  max-width: 980px;
+  z-index: 2;
+  margin: 0 auto;
+  padding: 0 22px;
+  position: relative;
+}
+
+#product-nav .wrap .inner h2 {
+  height: 100%;
+  color: #fff;
+  align-items: center;
+  font-size: 21px;
+  display: inline-flex;
+}
+
+.main {
+  padding: 80px 0;
+}
+
+.section-colors .section-content {
+  width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-colors .section-content .color-slide {
+  --cg-nav-offset: 480px;
+  grid-column-gap: 50px;
+  grid-template-columns: 685px 1fr;
+  grid-template-rows: var(--cg-nav-offset) repeat(2, auto);
+  will-change: transform;
+  grid-template-areas: "image nav"
+                       "image space"
+                       "description description";
+  column-gap: 50px;
+  display: grid;
+}
+
+.section-colors .section-content .color-slide .list-image {
+  z-index: -1;
+  grid-area: image;
+  place-self: end;
+  display: grid;
+}
+
+.section-colors .section-content .color-slide .list-image .gallery-item {
+  z-index: 1;
+  grid-area: 1 / 1;
+}
+
+.section-colors .section-content .color-slide .list-image .gallery-item picture {
+  --p-width: 406px;
+  --p-height: 1022px;
+  width: var(--p-width);
+  height: var(--p-height);
+  display: block;
+  -webkit-mask-image: url("gallery_mask_large_2x.8b73773a.png");
+  mask-image: url("gallery_mask_large_2x.8b73773a.png");
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.section-colors .section-content .color-slide .list-image .gallery-item.current {
+  z-index: 2;
+}
+
+.section-colors .section-content .color-slide .list-color {
+  grid-area: nav;
+  align-self: end;
+  margin-top: 0;
+  display: grid;
+}
+
+.section-colors .section-content .color-slide .list-color .nav-item {
+  margin-top: 20px;
+  list-style-type: none;
+}
+
+.section-colors .section-content .color-slide .list-color .nav-item a {
+  color: #424245;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.section-colors .section-content .color-slide .list-color .nav-item.current a {
+  color: #cecece;
+  pointer-events: none;
+  cursor: default;
+}
+
+/*# sourceMappingURL=index.e8265c92.css.map */
