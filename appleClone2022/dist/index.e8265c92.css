@@ -59,6 +59,15 @@ a {
   text-decoration: none;
 }
 
+button {
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #000;
 }
@@ -286,6 +295,34 @@ body {
   height: 832px;
   border-radius: 78px 78px 0 0;
   overflow: hidden;
+}
+
+.section-dynamic-island .deep-dive-button-container {
+  max-width: 980px;
+  justify-content: flex-end;
+  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.section-dynamic-island .deep-dive-button-container .deep-dive-button .copy {
+  color: #cecece;
+  text-align: right;
+  font-size: 24px;
+  line-height: 31px;
+  display: inline-block;
+}
+
+.section-dynamic-island .deep-dive-button-container .deep-dive-button:after {
+  content: "";
+  width: 70px;
+  height: 70px;
+  vertical-align: bottom;
+  background: linear-gradient(#ffb6ff, #b344ff);
+  border-radius: 100%;
+  margin-left: 20px;
+  display: inline-block;
 }
 
 /*# sourceMappingURL=index.e8265c92.css.map */
