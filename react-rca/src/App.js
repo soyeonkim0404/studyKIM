@@ -1,46 +1,27 @@
-import './App.css';
-import styled from 'styled-components';
-import { Route, Link, NavLink } from 'react-router-dom';
-import Home from './Home';
-import About from './About';
-import HistorySample from './HistorySample';
-import CounterContainer from './containers/CounterContainer';
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import TodoTemplate from './components/TodoTemplate';
+import TodoHead from './components/TodoHead';
+import TodoList from './components/TodoList';
+import TodoCreate from './components/TodoCreate';
+import { TodoProvider } from './TodoContext';
 
-const Circle = styled.div`
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  background: ${(props) => props.color};
-  ${(props) => props.huge && `width:10rem; height:10rem`}
+const GlobalStyle = createGlobalStyle`
+  body{
+    background: #e9ecef;
+  }
 `;
 
 function App() {
   return (
-    <div className="App">
-      <ul>
-        <li>
-          <NavLink
-            to="/"
-            activeStyle={{ background: 'black', color: 'white' }}
-            activeClassName="active"
-            exact
-          >
-            HOME
-          </NavLink>
-        </li>
-        <li>
-          <Link to="/about">ABOUT</Link>
-        </li>
-        <li>
-          <Link to="/history">HISTORY</Link>
-        </li>
-      </ul>
-      <Circle color="blue" huge />
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/history" component={HistorySample} />
-      <CounterContainer />
-    </div>
+    <TodoProvider>
+      <GlobalStyle />
+      <TodoTemplate>
+        <TodoHead />
+        <TodoList />
+        <TodoCreate />
+      </TodoTemplate>
+    </TodoProvider>
   );
 }
 
