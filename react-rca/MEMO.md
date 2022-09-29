@@ -1,5 +1,57 @@
 # 리액트 코드리뷰
 
+## 프로젝트 시작
+```
+$ npx create-react-app {프로젝트명}
+```
+
+CRA(Create-React-App)이란?
+CRA는 페이스북에서 만든 react.js를 처음 쉽게 빠르게 사용할수 있도록 만든 boilerplate이다.\
+boilerplate는 쉽게 말해서 프론트 쪽의 초기 환경 설정을 및 개발을 돕기 위한 템플릿이라고 생각하면된다.
+
+npm 이 아닌 npx 로 설치해야하는 이유
+npm으로 설치할 경우 CRA에 포함된 수 많은 의존성 라이브러리들이 컴퓨터에 계속 남아있게되고, 버전 업뎃에 따라
+변경된 사항이 있으면, 글로벌 설치된 패키지를 지우고 다시 설치를 해야하는 이슈가 생긴다.\
+npx로 설치하게되면, CRA패키지를 잠깐 다운받고, CRA 프로젝트를 생성 후, 다시 패키지를 삭제한다.
+이러한 방식으로 PC에 CRA의 무거운 패키지들을 남기지 않게 되고 항상 최신 버전의 CRA를 사용할 수 있다.
+
+cra에 대해서 좀 더 알고 싶다면?\
+https://velog.io/@rlaqltmxm/create-react-app-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0
+
+```
+"react": "^18.2.0",
+"react-dom": "^18.2.0",
+"react-scripts": "5.0.1",
+```
+
+### ReactDOM
+```
+import React from "react";
+import ReactDOM from "react-dom";
+
+ReactDOM.render(
+    document.getElementById("root")
+);
+```
+ReactDom은 웹의 인터페이스이다. 실제 html 요소를 화면에 불러오는 역할을 한다.
+ReactDom은 브라우저의 일부인 Real DOM 을 다룬다. 그래서 ReactDom은 유저가 보는 화면에 무슨 내용을 띄울지 정한다.
+ReactDom은 현 state와 전 state의 차이점을 받고, RealDom을 조정한다.
+
+### react-scripts
+CRA에서 사용하는 스크립트 및 구성이 포함되어있다. 웹앱의 구동, 빌드 등을 이 라이브러리를 사용하여 진행하고 있다.
+```
+"scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+ },
+```
+react-scripts의 내부를 살펴보면 webpack과 같은 모듈 번들러가 포함되어있는것을 확인할 수 있다.\
+scripts의 start 와 build는 webpack을 이용하여 빌드되고 있고, test는 테스트 라이브러리인 jest와 연결되어 있다.\
+eject는 기존의 하나로 묶여있던 webpack, babel 등을 꺼내어 커스터마이징할 때 사용된다고 한다. 이는 한번 실행이 되면 되돌릴 수 없으니
+사용에 신중해야한다. 이럴경우에는 cra보다는 직접 환경세팅을 하는것이 나으다고 한다.
+
 ## 리덕스
 상태관리라이브러리. 
 컴포넌트 상태관리 로직들을 다른 파일들로 분리시켜서 더욱 효율적으로 관리할 수 있으며, 
