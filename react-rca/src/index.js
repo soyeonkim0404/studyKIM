@@ -4,13 +4,25 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux'; // 리덕스 import
+import { Provider } from 'react-redux'; // 리덕스 import
+import rootReducer from './modules';
+import { logger } from 'redux-logger/src';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(logger)),
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
 );
 
