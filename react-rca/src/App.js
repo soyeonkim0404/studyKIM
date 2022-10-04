@@ -1,4 +1,5 @@
 import React from 'react';
+import styled, { css } from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 import TodoTemplate from './components/TodoTemplate';
 import TodoHead from './components/TodoHead';
@@ -14,14 +15,24 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const SampleStyle = styled.div`
+  width: 512px;
+  height: 60px;
+  line-height: 60px;
+  margin: 0 auto;
+  text-align: center;
+  background: white;
+  border-radius: 16px;
+`;
+
 function App() {
   const stateKim = useSelector((state) => state.reduxSample);
   return (
     <TodoProvider>
       <GlobalStyle />
-      <div className="reduxSample">
+      <SampleStyle>
         <p>{stateKim}</p>
-      </div>
+      </SampleStyle>
       <TodoTemplate>
         <TodoHead />
         <TodoList />
