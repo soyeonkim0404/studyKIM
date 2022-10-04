@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { MdDone, MdDelete } from 'react-icons/md';
 import { useTodoDispatch } from '../TodoContext';
 
-const Remove = styled.div`
+const Remove = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
