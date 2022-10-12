@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
-import TodoTemplate from './components/TodoTemplate';
-import TodoHead from './components/TodoHead';
-import TodoList from './components/TodoList';
-import TodoCreate from './components/TodoCreate';
 import { TodoProvider } from './TodoContext';
 import CounterContainer from './containers/CounterContainer';
 import { useSelector } from 'react-redux';
-
+import Modal from './components/Modal';
+import UseModal from './components/UseModal';
 const GlobalStyle = createGlobalStyle`
   body{
     background: #e9ecef;
@@ -27,17 +24,17 @@ const SampleStyle = styled.div`
 
 function App() {
   const stateKim = useSelector((state) => state.reduxSample);
+  const { openModal } = UseModal();
+  const handleClick = () => {
+    openModal(Modal, { foo: 'bar' });
+  };
   return (
     <TodoProvider>
       <GlobalStyle />
       <SampleStyle>
         <p>{stateKim}</p>
       </SampleStyle>
-      <TodoTemplate>
-        <TodoHead />
-        <TodoList />
-        <TodoCreate />
-      </TodoTemplate>
+      <button onClick={handleClick}>모달 버튼</button>
       <CounterContainer />
     </TodoProvider>
   );

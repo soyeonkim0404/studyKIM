@@ -9,19 +9,24 @@ import { Provider } from 'react-redux'; // 리덕스 import
 import rootReducer from './modules';
 import { logger } from 'redux-logger/src';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import ReactModal from 'react-modal';
+import ModalsProvider from './provider/ModalsProvider';
 
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(logger)),
 );
+ReactModal.setAppElement('#root');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <ModalsProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ModalsProvider>
     </Provider>
   </React.StrictMode>,
 );
